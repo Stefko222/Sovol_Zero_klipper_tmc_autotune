@@ -50,7 +50,7 @@ function check_download {
 
     if [ ! -d "${AUTOTUNETMC_PATH}" ]; then
         echo "[DOWNLOAD] Downloading Autotune TMC repository..."
-        if git -C "${autotunedirname}" clone https://github.com/andrewmcgr/klipper_tmc_autotune.git $autotunebasename; then
+        if git -C "${autotunedirname}" clone https://github.com/Stefko222/Sovol_Zero_klipper_tmc_autotune.git $autotunebasename; then
             chmod +x "${AUTOTUNETMC_PATH}"/install.sh
             printf "[DOWNLOAD] Download complete!\n\n"
         else
@@ -67,7 +67,7 @@ function link_extension {
 
     ln -srfn "${AUTOTUNETMC_PATH}/autotune_tmc.py" "${KLIPPER_PLUGINS_PATH}/autotune_tmc.py"
     ln -srfn "${AUTOTUNETMC_PATH}/motor_constants.py" "${KLIPPER_PLUGINS_PATH}/motor_constants.py"
-    ln -srfn "${AUTOTUNETMC_PATH}/motor_database.cfg" "${KLIPPER_PLUGINS_PATH}/motor_database.cfg"
+    ln -srfn "${AUTOTUNETMC_PATH}/motor_database_sovol_zero.cfg" "${KLIPPER_PLUGINS_PATH}/motor_database_sovol_zero.cfg"
 }
 
 function restart_klipper {
