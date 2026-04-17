@@ -66,7 +66,7 @@ function link_extension {
 
     ln -srfn "${AUTOTUNETMC_PATH}/autotune_tmc.py" "${KLIPPER_PLUGINS_PATH}/autotune_tmc.py"
     ln -srfn "${AUTOTUNETMC_PATH}/motor_constants.py" "${KLIPPER_PLUGINS_PATH}/motor_constants.py"
-    ln -srfn "${AUTOTUNETMC_PATH}/motor_database_sovol_zero.cfg" "${KLIPPER_PLUGINS_PATH}/motor_database_sovol_zero.cfg"
+    ln -srfn "${AUTOTUNETMC_PATH}/motor_database_sovol_zero.cfg" "${KLIPPER_PLUGINS_PATH}/motor_database.cfg"
 }
 
 function install_config {
