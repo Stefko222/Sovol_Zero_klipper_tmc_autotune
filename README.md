@@ -1,3 +1,5 @@
+# WORK IN PROGRESS - do not use!!!
+
 # Klipper TMC Autotune
 
 Klipper extension for automatic configuration and tuning of TMC drivers.
