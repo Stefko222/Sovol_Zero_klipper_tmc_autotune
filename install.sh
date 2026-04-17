@@ -12,7 +12,6 @@ fi
 set -eu
 export LC_ALL=C
 
-
 function preflight_checks {
     if [ "$EUID" -eq 0 ]; then
         echo "[PRE-CHECK] This script must not be run as root!"
