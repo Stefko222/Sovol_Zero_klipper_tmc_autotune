@@ -70,6 +70,23 @@ function link_extension {
     ln -srfn "${AUTOTUNETMC_PATH}/motor_database_sovol_zero.cfg" "${KLIPPER_PLUGINS_PATH}/motor_database_sovol_zero.cfg"
 }
 
+function install_config {
+    echo "[INSTALL] Checking for autotune_tmc.cfg..."
+    
+    # check config folder
+    if [ -d "${KLIPPER_CONFIG_PATH}" ]; then
+        # only copy if file does not exist allready
+        if [ ! -f "${KLIPPER_CONFIG_PATH}/autotune_tmc.cfg" ]; then
+            echo "[INSTALL] Creating autotune_tmc.cfg from template..."
+            cp "${AUTOTUNETMC_PATH}/autotune_tmc.cfg" "${KLIPPER_CONFIG_PATH}/autotune_tmc.cfg"
+        else
+            echo "[INFO] autotune_tmc.cfg already exists. Skipping copy to protect your settings."
+        fi
+    else
+        echo "[WARNING] Klipper config directory not found at ${KLIPPER_CONFIG_PATH}. Skipping config install."
+    fi
+}
+
 function restart_klipper {
     echo "[POST-INSTALL] Restarting Klipper..."
     sudo systemctl restart klipper
@@ -85,4 +102,5 @@ printf "======================================\n\n"
 preflight_checks
 check_download
 link_extension
+install_config
 restart_klipper
